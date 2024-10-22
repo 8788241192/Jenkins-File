@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-               git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/jaiswaladi246/Boardgame.git'
+               git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/shubham8788/project.git'
             }
         }
         
@@ -29,7 +29,7 @@ pipeline {
         stage('SonarQube Analsyis') {
             steps {
                 withSonarQubeEnv('sonar') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=BoardGame -Dsonar.projectKey=BoardGame \
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Project -Dsonar.projectKey=Project \
                             -Dsonar.java.binaries=. '''
                 }
             }
